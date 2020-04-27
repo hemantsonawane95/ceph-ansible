@@ -1,0 +1,21 @@
+[mons]
+slow-mon01 ansible_host=10.11.2.211 monitor_address=10.18.2.211
+slow-mon02 ansible_host=10.11.2.212 monitor_address=10.18.2.212
+slow-mon03 ansible_host=10.11.2.213 monitor_address=10.18.2.213
+
+[mgr]
+slow-mon01 ansible_host=10.11.2.211 monitor_address=10.18.2.211
+
+[osds]
+10.11.2.201
+10.11.2.202
+10.11.2.203
+10.11.2.204
+
+[rgws]
+slow-mon01 ansible_host=10.11.2.211 monitor_address=10.18.2.211
+slow-mon02 ansible_host=10.11.2.212 monitor_address=10.18.2.212
+slow-mon03 ansible_host=10.11.2.213 monitor_address=10.18.2.213
+
+[grafana-server]
+slow-mon01 ansible_host=10.11.2.211 monitor_address=10.18.2.211
