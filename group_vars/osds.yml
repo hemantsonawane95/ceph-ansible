@@ -123,6 +123,12 @@ dummy:
 # This allows for four combinations: just data, data and wal, data and wal and
 # db, data and db.
 # For example:
+# data: It is possible to pass raw devices as well as logical volumes in lvm_volumes config.
+#       For raw devices do not create lvm before applying playbook ceph-ansible will 
+#       create it for you. But for logical volumes lvm needs to be created prior applying 
+#       ceph-ansible playbook.
+
+##lvm_volumes with raw devices 
 lvm_volumes:
   - data: /dev/sdd
     wal: wal-lv1
@@ -174,6 +180,62 @@ lvm_volumes:
     wal_vg: vg2
     db: journal-lv5
     db_vg: vg2
+
+##lvm_volumes with logical volumes
+
+#lvm_volumes:
+#  - data: data-1
+#    data_vg: vg3
+#    wal: wal-lv1
+#    wal_vg: vg1
+#    db: journal-lv1
+#    db_vg: vg1
+#  - data: data-1
+#    data_vg: vg4
+#    wal: wal-lv2
+#    wal_vg: vg1
+#    db: journal-lv2
+#    db_vg: vg1
+#  - data: data-1
+#    data_vg: vg5
+#    wal: wal-lv3
+#    wal_vg: vg1
+#    db: journal-lv3
+#    db_vg: vg1
+#  - data: data-1
+#    data_vg: vg6
+#    wal: wal-lv4
+#    wal_vg: vg1
+#    db: journal-lv4
+#    db_vg: vg1
+#  - data: data-1
+#    data_vg: vg7
+#    wal: wal-lv5
+#    wal_vg: vg1
+#    db: journal-lv5
+#    db_vg: vg1
+#  - data: data-1
+#    data_vg: vg8
+#    wal: wal-lv1
+#    wal_vg: vg2
+#    db: journal-lv1
+#    db_vg: vg2
+#  - data: data-1
+#    data_vg: vg9
+#    wal: wal-lv2
+#    wal_vg: vg2
+#    db: journal-lv2
+#    db_vg: vg2
+#  - data: data-1
+#    data_vg: vg10
+#    wal: wal-lv3
+#    wal_vg: vg2
+#    db: journal-lv3
+#    db_vg: vg2
+#  - data: data-1
+#    data_vg: vg11
+#    wal: wal-lv4
+
 #lvm_volumes: []
 #crush_device_class: ""
 #osds_per_device: 1
